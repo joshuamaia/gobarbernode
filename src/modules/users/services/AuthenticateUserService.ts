@@ -21,7 +21,7 @@ export default class AuthenticateUserService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
-    @inject('BCryptHashProvider')
+    @inject('HashProvider')
     private hashProvider: IHashProvider
   ) {}
 
