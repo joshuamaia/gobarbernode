@@ -2,11 +2,16 @@ import 'reflect-metadata';
 import AppError from '@shared/errors/AppError';
 import CreateUserService from './CreateUserService';
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
+import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 
 describe('CreateUser', () => {
   it('show be able to create a new user', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
-    const createUserService = new CreateUserService(fakeUsersRepository);
+    const fakeHashProvider = new FakeHashProvider();
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider
+    );
 
     const user = await createUserService.execute({
       name: 'Joshua',
@@ -20,7 +25,11 @@ describe('CreateUser', () => {
 
   it('show not be able to create a new user with same email', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
-    const createUserService = new CreateUserService(fakeUsersRepository);
+    const fakeHashProvider = new FakeHashProvider();
+    const createUserService = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider
+    );
 
     const user = await createUserService.execute({
       name: 'Joshua',
