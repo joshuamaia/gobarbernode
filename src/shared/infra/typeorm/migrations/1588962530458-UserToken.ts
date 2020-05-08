@@ -39,7 +39,7 @@ export class UserToken1588962530458 implements MigrationInterface {
             name: 'token_user',
             referencedTableName: 'users',
             referencedColumnNames: ['id'],
-            columnNames: ['id'],
+            columnNames: ['user_id'],
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },
