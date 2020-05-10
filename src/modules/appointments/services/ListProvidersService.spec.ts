@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 
-import AppError from '@shared/errors/AppError';
 import ListProvidersService from './ListProvidersService';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 

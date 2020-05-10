@@ -14,7 +14,7 @@ class UsersRepository implements IUsersRepository {
   public async findAllProviders({
     except_user_id,
   }: IFindAllProvidersDTO): Promise<User[]> {
-    const users = this.ormRepository.find({
+    const users = await this.ormRepository.find({
       where: {
         id: Not(except_user_id),
       },
