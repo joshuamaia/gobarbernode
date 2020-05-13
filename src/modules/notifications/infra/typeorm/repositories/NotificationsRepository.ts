@@ -19,6 +19,7 @@ class NotificationsRepository implements INotificationsRepository {
       content,
     });
 
+    //salva notificação
     await this.ormRepository.save(notification);
 
     return notification;
