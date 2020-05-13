@@ -32,14 +32,14 @@ describe('CreateAppointment', () => {
 
   it('show not be able to create two appointment on the same time', async () => {
     await createAppointmentService.execute({
-      date: new Date(2020, 4, 11, 11),
+      date: new Date(2020, 4, 20, 11),
       provider_id: 'provider-id',
       user_id: 'user-id',
     });
 
     await expect(
       createAppointmentService.execute({
-        date: new Date(2020, 4, 11, 11),
+        date: new Date(2020, 4, 20, 11),
         provider_id: 'provider-id',
         user_id: 'user-id',
       })
