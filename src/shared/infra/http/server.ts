@@ -6,6 +6,7 @@ import routes from './routes';
 import AppError from '@shared/errors/AppError';
 import uploadConfig from '@config/upload';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import '@shared/infra/typeorm';
 import '@shared/container';
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/files', express.static(uploadConfig.tmpFolder));
 app.use(routes);
 
+app.use(errors());
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
     if (err instanceof AppError) {
