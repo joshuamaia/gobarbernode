@@ -1,5 +1,7 @@
 .idea
 .vscode
+.env
+ormconfig.json
 build
 node_modules
 temp/
