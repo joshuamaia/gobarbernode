@@ -6,7 +6,6 @@ export default class RedisCacheProvider implements ICacheProvider {
   private client: RedisClient;
 
   constructor() {
-    console.log('Entrei aqui........');
     this.client = new Redis(cacheConfig.config.redis);
   }
 
@@ -36,5 +35,7 @@ export default class RedisCacheProvider implements ICacheProvider {
 
     return parseData;
   }
-  public async invalidate(key: string): Promise<void> {}
+  public async invalidate(key: string): Promise<void> {
+    await this.client.del(key);
+  }
 }
