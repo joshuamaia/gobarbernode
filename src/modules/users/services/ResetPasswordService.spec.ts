@@ -2,7 +2,6 @@ import 'reflect-metadata';
 
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 
-import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
 import FakeUserTokensRepository from '../repositories/fakes/FakeUserTokensRepository';
 import ResetPasswordService from './ResetPasswordService';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';

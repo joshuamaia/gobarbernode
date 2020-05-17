@@ -2,14 +2,20 @@ import 'reflect-metadata';
 
 import ListProvidersService from './ListProvidersService';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 
 describe('ListProviders', () => {
   let fakeUsersRepository: FakeUsersRepository;
   let listProvidersService: ListProvidersService;
+  let fakeCacheProvider: FakeCacheProvider;
 
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
-    listProvidersService = new ListProvidersService(fakeUsersRepository);
+    fakeCacheProvider = new FakeCacheProvider();
+    listProvidersService = new ListProvidersService(
+      fakeUsersRepository,
+      fakeCacheProvider
+    );
   });
 
   it('show be able to list the providers', async () => {
